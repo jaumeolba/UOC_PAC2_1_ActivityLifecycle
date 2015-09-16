@@ -42,7 +42,6 @@ limitations under the License.
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:text="@string/btn_start_a_label"
-                android:onClick="startActivityA"
                 />
 
         <Button
@@ -51,7 +50,6 @@ limitations under the License.
                 android:layout_width="wrap_content"
                 android:text="@string/btn_start_c_label"
                 android:layout_toRightOf="@id/btn_start_a"
-                android:onClick="startActivityC"
                 />
 
         <Button
@@ -60,7 +58,6 @@ limitations under the License.
                 android:layout_width="wrap_content"
                 android:text="@string/btn_finish_b_label"
                 android:layout_toRightOf="@id/btn_start_c"
-                android:onClick="finishActivityB"
                 />
 
         <Button
@@ -69,7 +66,6 @@ limitations under the License.
                 android:layout_width="wrap_content"
                 android:text="@string/btn_start_dialog_label"
                 android:layout_toRightOf="@id/btn_finish_b"
-                android:onClick="startDialog"
                 />
 
 

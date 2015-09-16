@@ -20,16 +20,34 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 /**
  * Example Activity to demonstrate the lifecycle callback methods.
  */
 public class ActivityB extends Activity {
 
+    private Button mButtonActivityA;
+    private Button mButtonActivityC;
+    private Button mButtonFinishActivityB;
+    private Button mButtonStartDialog;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_b);
+
+        // Set views
+        mButtonActivityA = (Button) findViewById(R.id.btn_start_a);
+        mButtonActivityC = (Button) findViewById(R.id.btn_start_c);
+        mButtonFinishActivityB = (Button) findViewById(R.id.btn_finish_b);
+        mButtonStartDialog = (Button) findViewById(R.id.btn_start_dialog);
+
+        // Set Listeners
+        mButtonActivityA.setOnClickListener(startActivityAListener);
+        mButtonActivityC.setOnClickListener(startActivityCListener);
+        mButtonFinishActivityB.setOnClickListener(finishActivityBListener);
+        mButtonStartDialog.setOnClickListener(startDialogListener);
     }
 
     @Override
@@ -62,22 +80,51 @@ public class ActivityB extends Activity {
         super.onDestroy();
     }
 
-    public void startDialog(View v) {
+    public void startDialog() {
         Intent intent = new Intent(ActivityB.this, DialogActivity.class);
         startActivity(intent);
     }
 
-    public void startActivityA(View v) {
+    public void startActivityA() {
         Intent intent = new Intent(ActivityB.this, ActivityA.class);
         startActivity(intent);
     }
 
-    public void startActivityC(View v) {
+    public void startActivityC() {
         Intent intent = new Intent(ActivityB.this, ActivityC.class);
         startActivity(intent);
     }
 
-    public void finishActivityB(View v) {
+    public void finishActivityB() {
         ActivityB.this.finish();
     }
+
+    // Listeners
+    private View.OnClickListener startActivityAListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            // do something when the button is clicked
+            startActivityA();
+        }
+    };
+
+    private View.OnClickListener startActivityCListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            // do something when the button is clicked
+            startActivityC();
+        }
+    };
+
+    private View.OnClickListener finishActivityBListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            // do something when the button is clicked
+            finishActivityB();
+        }
+    };
+
+    private View.OnClickListener startDialogListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            // do something when the button is clicked
+            startDialog();
+        }
+    };
 }
